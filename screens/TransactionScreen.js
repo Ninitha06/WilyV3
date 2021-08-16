@@ -203,8 +203,9 @@ export default class TransactionScreen extends Component {
 
   checkStudentEligibilityForBookReturn = async (bookId, studentId) => {
     const transactionsRef = await db
-      .collection("transactions")
-      .where("book_id", "==", bookId)
+      .collection('transactions')
+      .where('book_id', '==', this.state.scannedBookId)
+      .orderBy('date', 'desc')
       .limit(1)
       .get();
 
