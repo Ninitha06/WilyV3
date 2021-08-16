@@ -202,9 +202,10 @@ export default class TransactionScreen extends Component {
   };
 
   checkStudentEligibilityForBookReturn = async (bookId, studentId) => {
+    // Set Up indexes in firestore for compound queries
     const transactionsRef = await db
       .collection('transactions')
-      .where('book_id', '==', this.state.scannedBookId)
+      .where('book_id', '==', bookId)
       .orderBy('date', 'desc')
       .limit(1)
       .get();
