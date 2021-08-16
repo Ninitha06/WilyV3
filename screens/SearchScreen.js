@@ -57,7 +57,7 @@ export default class SearchScreen extends Component {
       bookRef.docs.map((doc) => {
         this.setState({
           allTransactions: [...this.state.allTransactions, doc.data()],
-          lastDocument: doc,
+          lastVisibleTransaction: doc,
         });
       });
     }
